@@ -32,12 +32,15 @@ const todoList = () => {
   };
 
   const toDisplayableList = (list) => {
-    // Format the To-Do list here, and return the output string as per the format given above.
-    // FILL YOUR CODE HERE
-    // ..
-    // ..
-    // ..
-    // return OUTPUT_STRING
+    let dueDate = new Date();
+    const today = formattedDate(dueDate);
+    return list
+      .map((todo) => {
+        return `[${todo.completed ? "x" : " "}] ${todo.title} ${
+          todo.dueDate !== today ? todo.dueDate : " "
+        }`;
+      })
+      .join("\n");
   };
 
   return {
